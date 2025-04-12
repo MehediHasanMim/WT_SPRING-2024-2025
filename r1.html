@@ -1,102 +1,87 @@
 <!DOCTYPE html>
+<html>
 <head>
-    
-    <title> Registration</title>
+    <title>Registration</title>
     <style>
         body {
-            background-color: lightblue; /* Change the background color */
+            background-color: lightblue;
+        }
+        #errorDiv {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <h2>Registration Form</h2>
- 
-   
+
+    <form id="myForm">
         <fieldset>
             <legend>Registration</legend>
-            
             <table>
- 
                 <tr>
-                    <td> Full name:</td>
-                    <td><input type ="text" name= "full name" value =""></td>
+                    <td>Full name:</td>
+                    <td><input type="text" id="username" name="username"></td>
                 </tr>
- 
                 <tr>
-                    <td> Email:</td>
-                    <td><input type ="email" name= "email" value =""></td>
+                    <td>Email:</td>
+                    <td><input type="email" id="email" name="email"></td>
                 </tr>
- 
                 <tr>
-                    <td> Password:</td>
-                    <td><input type ="text" name= "password" value =""></td>
+                    <td>Password:</td>
+                    <td><input type="password" id="password" name="password"></td>
                 </tr>
- 
                 <tr>
-                    <td>Confirm Password:</td>
-                    <td><input type ="text" name= "confirm password" value =""></td>
+                    <td>Confirm password:</td>
+                    <td><input type="password" id="confirmPassword" name="confirmPassword"></td>
                 </tr>
- 
                 <tr>
-                <td><label for="Country">Country:</label></td>
+                    <td>Country:</td>
                     <td>
-                    <select id="Choose" name="choose">
-                        <option value="bd">Bangladesh</option>
-                        <option value="uk">UK</option>
-                        <option value="nep">Nepal</option>
-                        <option value="sri">Srilanka</option>
-                        <option value="usa">USA</option>
+                        <select id="country" name="country">
+                            <option value="">Select</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="uk">UK</option>
+                            <option value="nep">Nepal</option>
+                            <option value="sri">Sri Lanka</option>
+                            <option value="usa">USA</option>
+                        </select>
                     </td>
                 </tr>
- 
-               
                 <tr>
-                    <td> Date of Birth:</td>
-                    <td><input type ="date" name= "dob" ></td>
+                    <td>Date of Birth:</td>
+                    <td><input type="date" id="dob" name="dob"></td>
                 </tr>
- 
                 <tr>
-                <td>
-                    <input type="checkbox"  name="I agree to the terms and conditions " value="I agree to the terms and conditions ">
-                <label for="I agree to the terms and conditions ">I agree to the terms and conditions </label><br>
-               </td>
+                    <td colspan="2">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">I agree to the terms and conditions</label>
+                    </td>
                 </tr>
- 
                 <tr>
-                    <td> Gender:</td>
+                    <td>Gender:</td>
                     <td>
-                        <input type ="radio" name= "gender" value ="male">Male
-                        <input type ="radio" name= "gender" value ="female">female
-                        <input type ="radio" name= "gender" value ="other">other
-                        </td>
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                        <input type="radio" name="gender" value="other"> Other
+                    </td>
                 </tr>
- 
- 
             </table>
         </fieldset>
-             
+
         <fieldset>
-                <legend>Air Quality:</legend>
-             <table>
-               
-            <tr>
+            <legend>Air Quality:</legend>
             <label for="opinion">Your Opinion on Air Quality:</label><br>
-            <textarea id="opinion" name="opinion" rows="4" cols="50"></textarea><br><br>
-            </tr>
-           
-            </table>
+            <textarea id="opinion" name="opinion" rows="4" cols="50"></textarea>
         </fieldset>
-            </td>
-       
- 
-   
- </fieldset>
-  
- 
-<tr>
-    <td><input type ="submit" name= "submit"></td>
-    <td><input type ="Reset" name= "Clear Form"></td>
-</tr>
+
+        <div id="errorDiv"></div><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
     </form>
+
+    <!-- Load JavaScript -->
+    <script src="sample.js" defer></script>
 </body>
- 
+</html>
