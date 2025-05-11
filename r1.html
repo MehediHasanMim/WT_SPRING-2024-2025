@@ -1,87 +1,223 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration</title>
+  <script src="validation.js"></script>
+
+    <title>AQI</title>
     <style>
         body {
-            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
         }
-        #errorDiv {
-            color: red;
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #b4464c;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .left-section {
+            width: 60%;
+        }
+
+        .registration {
+            background-color: #818364; 
+            padding: 20px;
+        }
+
+        .login {
+            background-color: #e92f3e;
+            padding: 20px;
+        }
+
+        .cities {
+            width: 40%;
+            background-color: #235f466c; 
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
             font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+       
+
+
+   /* .gender-terms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gender-terms label {
+    margin-top: 5px;
+}*/
+
+.bg-select {
+    width: 150px;
+    margin-top: 5px;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+            width: 100%;
+            padding: 7px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
-    <h2>Registration Form</h2>
 
-    <form id="myForm">
-        <fieldset>
-            <legend>Registration</legend>
-            <table>
-                <tr>
-                    <td>Full name:</td>
-                    <td><input type="text" id="username" name="username"></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="email" id="email" name="email"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" id="password" name="password"></td>
-                </tr>
-                <tr>
-                    <td>Confirm password:</td>
-                    <td><input type="password" id="confirmPassword" name="confirmPassword"></td>
-                </tr>
-                <tr>
-                    <td>Country:</td>
-                    <td>
-                        <select id="country" name="country">
-                            <option value="">Select</option>
-                            <option value="bd">Bangladesh</option>
-                            <option value="uk">UK</option>
-                            <option value="nep">Nepal</option>
-                            <option value="sri">Sri Lanka</option>
-                            <option value="usa">USA</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date of Birth:</td>
-                    <td><input type="date" id="dob" name="dob"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="checkbox" id="terms" name="terms">
-                        <label for="terms">I agree to the terms and conditions</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td>
-                        <input type="radio" name="gender" value="male"> Male
-                        <input type="radio" name="gender" value="female"> Female
-                        <input type="radio" name="gender" value="other"> Other
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
+<h1>AQI</h1>
 
-        <fieldset>
-            <legend>Air Quality:</legend>
-            <label for="opinion">Your Opinion on Air Quality:</label><br>
-            <textarea id="opinion" name="opinion" rows="4" cols="50"></textarea>
-        </fieldset>
+<div class="container">
+    <!-- Left section with Registration and Login -->
+    <div class="left-section">
+        <!-- Registration Form -->
+        
+        <div class="registration">
+            <div id="errorBox"></div>
+            <h2>Registration</h2>
+            <form onsubmit="return validateForm(event)">
 
-        <div id="errorDiv"></div><br>
+                <label>Full Name:</label>
+                <input type="text" name="fullname">
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </form>
+                <label>Email:</label>
+                <input type="email" name="email">
 
-    <!-- Load JavaScript -->
-    <script src="sample.js" defer></script>
+                <label>Password:</label>
+                <input type="password" name="password">
+
+                <label>Confirm Password:</label>
+                <input type="password" name="confirmpassword">
+
+                <label>Date Of Birth:</label>
+                <input type="date" name="dob">
+
+                <!--<label>Country:</label>
+                <input type="text" name="country" value="United States">-->
+                <div class="form-group">
+                  <label>Country:</label>
+                  <select name="country">
+                  <option value="">Select</option>
+                  <option>USA</option>
+                  <option>India</option>
+                  <option>Bangladesh</option>
+                  <option>UK</option>
+                  <option>Nepal</option>
+        </select>
+                </div>
+
+                <div class="gender-terms">
+                  <label>Gender:</label>
+                  <label><input type="radio" name="gender" value="Male"> Male</label>
+                  <label><input type="radio" name="gender" value="Female"> Female</label>
+              
+
+                <!--<label>
+                    <input type="checkbox" name="terms"> I agree to terms and conditions.
+                </label>-->
+
+                <label><input type="checkbox" name="terms"> I agree to the Terms and Conditions</label>
+</div>
+
+                 <!--<label>Select BG color:</label>
+                <select name="bgcolor">
+                    <option>White</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                </select>-->
+
+              
+
+                <label>Background color:</label>
+                  <select class="bg-select" name="bgcolor">
+                   <option>White</option>
+                   <option>Green</option>
+                   <option>Blue</option>
+                   </select>
+          
+          
+          <div class="form-group">
+            <label>Feedback:</label>
+            <textarea rows="3" cols="30"></textarea>
+          </div>
+
+                <input type="submit" value="Submit" class="submit-btn">
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login">
+            <h2>Login</h2>
+            <form>
+                <label>Fullname:</label>
+                <input type="text" name="fullname">
+                <label>Password:</label>
+                <input type="password" name="loginpassword"><br><br>
+                <input type="submit" value="Submit" class="submit-btn">
+            </form>
+        </div>
+    </div>
+
+    <!-- Cities and AQI -->
+    <div class="cities">
+        <h2>Citys and their AQI</h2>
+        <table>
+            <tr><th>City</th><th>AQI</th></tr>
+            <tr><td>New York</td><td>85</td></tr>
+            <tr><td>Los Angeles</td><td>120</td></tr>
+            <tr><td>Chicago</td><td>95</td></tr>
+            <tr><td>Paris</td><td>70</td></tr>
+            <tr><td>Mexico City</td><td>140</td></tr>
+            <tr><td>Sydney</td><td>55</td></tr>
+            <tr><td>Moscow</td><td>90</td></tr>
+            <tr><td>Toronto</td><td>80</td></tr>
+            <tr><td>Berlin</td><td>60</td></tr>
+        </table>
+    </div>
+</div>
+
+      <script src="r1.js" defer></script>
+
 </body>
 </html>
